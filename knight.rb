@@ -1,3 +1,12 @@
+=begin
+Main lesssons learned:
+Good to have hash back in my rotation.
+ALWAYS USE .map(&:clone) TO DUPLICATE AN ARRAY CUZ ITS A POINTER OTHERWISE
+Since chess has a limited board, setting up the whole board at the beginning is a straightforward choice.
+The "nextMove" array is a first for me. I really like the simplicity.
+Surprised by how easy it is to set the stop sign so the system won't go infinitely deep.
+=end
+
 class Knight
     attr_accessor :path, :step
     def initialize(path = Array.new{Array.new(2)}, step = -1)
