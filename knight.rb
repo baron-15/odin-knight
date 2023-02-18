@@ -32,45 +32,13 @@ def knight(stL,fnL)
 end
 
 def move(cuL, fnL)
-    cuLeftUp = cuL.map(&:clone)
-    cuLeftUp[0] -= 1
-    cuLeftUp[1] += 2
-    eval(cuL, cuLeftUp, fnL)
-
-    cuRightUp = cuL.map(&:clone)
-    cuRightUp[0] += 1
-    cuRightUp[1] += 2
-    eval(cuL, cuRightUp, fnL)
-
-    cuLeftDown = cuL.map(&:clone)
-    cuLeftDown[0] -= 1
-    cuLeftDown[1] -= 2
-    eval(cuL, cuLeftDown, fnL)
-
-    cuRightDown = cuL.map(&:clone)
-    cuRightDown[0] += 1
-    cuRightDown[1] -= 2
-    eval(cuL, cuRightDown, fnL)
-
-    cuLeftUp2 = cuL.map(&:clone)
-    cuLeftUp2[0] -= 2
-    cuLeftUp2[1] += 1
-    eval(cuL, cuLeftUp2, fnL)
-
-    cuRightUp2 = cuL.map(&:clone)
-    cuRightUp2[0] += 2
-    cuRightUp2[1] += 1
-    eval(cuL, cuRightUp2, fnL)
-
-    cuLeftDown2 = cuL.map(&:clone)
-    cuLeftDown2[0] -= 2
-    cuLeftDown2[1] -= 1
-    eval(cuL, cuLeftDown2, fnL)
-
-    cuRightDown2 = cuL.map(&:clone)
-    cuRightDown2[0] += 2
-    cuRightDown2[1] -= 1
-    eval(cuL, cuRightDown2, fnL)
+    move = [[1, 2], [-2, -1], [-1, 2], [2, -1],[1, -2], [-2, 1], [-1, -2], [2, 1]]
+    move.each do |nextMove|
+        nextL = cuL.map(&:clone)
+        nextL[0] += nextMove[0]
+        nextL[1] += nextMove[1]
+        eval(cuL, nextL, fnL)
+    end
 end
 
 def eval(lastL, cuL, fnL)
@@ -120,7 +88,6 @@ def meaningless?(inp)
     else return false
     end
 end
-
 
 # Please use 1 to 8
 # Please do not use 0 to 7
